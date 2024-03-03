@@ -13,7 +13,6 @@ public class Polygon {
             this.points[i] = new Point(other.points[i].x, other.points[i].y);
         }
     }
-
    public StringBuilder toSvg(){
         StringBuilder code = new StringBuilder();
         code.append("<polygon points=\"");
