@@ -7,6 +7,12 @@ public class Polygon {
     public Polygon(Point[] points) {
         this.points = points;
     }
+    public Polygon(Polygon other){                              // konstruktor kopiujacy GLEBOKA KOPIA
+        this.points = new Point[other.points.length];
+        for(int i = 0; i < other.points.length; i++){
+            this.points[i] = new Point(other.points[i].x, other.points[i].y);
+        }
+    }
 
    public StringBuilder toSvg(){
         StringBuilder code = new StringBuilder();

@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        Point point1 = new Point(65,10);                        // stworzenie punktow
-        Point point2 = new Point(300,10);
+        Point point1 = new Point(300,200);                        // stworzenie punktow
+        Point point2 = new Point(200,150);
         Point point3 = new Point(250,165);
-        Point point4 = new Point(10,165);
+        Point point4 = new Point(70,30);
 
         //System.out.println(point1.x); System.out.println(point1.y);  // wypisywanie wartosci punktow
         //System.out.println(point2.x); System.out.println(point2.y);
@@ -11,7 +11,7 @@ public class Main {
         Segment segment = new Segment(point1, point2);                  // stworzenie odcinka
 
         //System.out.println(segment.lengh());                          // wypisanie dlugosci odcinka
-        //System.out.println(segment.toSvg());                          // narysowanie odcinka w svg
+        System.out.println(segment.toSvg());                          // narysowanie odcinka w svg
 
         Point[] points = new Point[4];                                  //tablica punktow
         points[0] = point1;
@@ -23,6 +23,11 @@ public class Main {
         Point[] wynik = new Point[4];
         wynik = polygon.getPoints();                                    // przypisanie do tablicy wynikowej punktow wielokonta
 
-        System.out.println(polygon.toSvg());                            // narysowanie wielokonta w svg
+        //System.out.println(polygon.toSvg());                            // narysowanie wielokonta w svg
+
+        Segment[] odcinki = new Segment[2];
+        odcinki = Segment.perpenSegment(point4, segment);
+        System.out.println(odcinki[0].toSvg());
+        System.out.println(odcinki[1].toSvg());
     }
 }
