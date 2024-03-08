@@ -6,5 +6,4 @@ public class Point {
         this.x = x1;
         this.y = y1;
     }
-
 }
