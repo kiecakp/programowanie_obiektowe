@@ -6,10 +6,12 @@ public class Polygon extends Shape{
         return points;
     }
     public Polygon(Point[] points, Style style) {
+        super(style);
         this.points = points;
         this.style = style;
     }
     public Polygon(Polygon other){                              // konstruktor kopiujacy GLEBOKA KOPIA
+        super(other.style);
         this.points = new Point[other.points.length];
         for(int i = 0; i < other.points.length; i++){
             this.points[i] = new Point(other.points[i].x, other.points[i].y);
@@ -26,7 +28,6 @@ public class Polygon extends Shape{
         return code;
    }
    public static Polygon square(Segment segment, Style style){
-        double bok = (segment.lengh() * Math.sqrt(2))/2;
         Point point1 = new Point(segment.getEndPoint().x, segment.getStartPoint().y);
         Point point2 = new Point(segment.getStartPoint().x, segment.getEndPoint().y);
         Point[] points = new Point[4];

@@ -1,7 +1,7 @@
 public abstract class Shape {
-    public Style style;
+    protected Style style;
 
-    public Shape() {
+    public Shape(Style style) {
         this.style = style;
     }
 
