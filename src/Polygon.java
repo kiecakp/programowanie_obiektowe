@@ -1,4 +1,4 @@
-public class Polygon {
+public class Polygon extends Shape{
     private Point[] points;
     private Style style;
 
@@ -24,5 +24,16 @@ public class Polygon {
         code += "\"";
         code += style.toSvg();
         return code;
+   }
+   public static Polygon square(Segment segment, Style style){
+        double bok = (segment.lengh() * Math.sqrt(2))/2;
+        Point point1 = new Point(segment.getEndPoint().x, segment.getStartPoint().y);
+        Point point2 = new Point(segment.getStartPoint().x, segment.getEndPoint().y);
+        Point[] points = new Point[4];
+        points[0] = segment.getStartPoint();
+        points[1] = point1;
+        points[2] = segment.getEndPoint();
+        points[3] = point2;
+        return new Polygon(points, style);
    }
 }

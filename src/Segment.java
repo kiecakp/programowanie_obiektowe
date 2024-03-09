@@ -25,14 +25,14 @@ public class Segment {
         return String.format(Locale.ENGLISH, "<line x1=\"%f\" y1=\"%f\" x2=\"%f\" y2=\"%f\" style=\"stroke:red;stroke-width:2\" />", startPoint.x, startPoint.y, endPoint.x, endPoint.y);
     }
 
-    static Segment[] perpenSegment(Point point, Segment segment) {
+    static Segment[] perpenSegment(Point point, Segment segment, double r) {
         double a = -1 / ((segment.endPoint.y - segment.startPoint.y) / (segment.endPoint.x - segment.startPoint.x));
         double b = point.y - (a * point.x);
-        double tempX = point.x + (segment.lengh() / Math.sqrt(1 + Math.pow(a, 2)));
+        double tempX = point.x + (r / Math.sqrt(1 + Math.pow(a, 2)));
         double tempY = tempX * a + b;
 
         Point firstPoint = new Point(tempX, tempY);
-        tempX = point.x - (segment.lengh() / Math.sqrt(1 + Math.pow(a, 2)));
+        tempX = point.x - (r / Math.sqrt(1 + Math.pow(a, 2)));
         tempY = tempX * a + b;
 
         Point secondPoint = new Point(tempX, tempY);
